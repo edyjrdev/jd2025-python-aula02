@@ -3,8 +3,17 @@ import datetime
 
 try:
     ano_str = input('Informe seu ano nascimento: ')
+    
     ano_int = int(ano_str)
-    idade = datetime.datetime.now().year - ano_int
+
+    # ano_int = float(ano_str) # forçar erro instancia
+
+    # inspecionar instancia
+    if isinstance(ano_int, int):
+        idade = datetime.datetime.now().year - ano_int
+    else:
+        idade = 0
+
     print(f'Sua idade é {idade}')
 except (ZeroDivisionError, TypeError, ValueError) as e: # erros provaveis
     print(e)
